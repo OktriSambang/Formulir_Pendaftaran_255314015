@@ -1,102 +1,117 @@
-
-/* =========================================================
-   MODUL 6 — FORMULIR PENDAFTARAN MAHASISWA BARU
-   File: style.css
-   ========================================================= */
-
-/* Reset dan pengaturan dasar */
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f3f5f7;
-  color: #222;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f7f4ee 0%, #eef3f9 100%);
+  color: #1f2a37;
   line-height: 1.6;
 }
 
-/* =========================================================
+/* ==========================
    HEADER
-   ========================================================= */
+   ========================== */
 
 header {
   text-align: center;
-  background: #174a8b;
-  color: white;
-  padding: 25px 15px;
+  background: linear-gradient(135deg, #7d1d2a 0%, #4b1d34 100%);
+  color: #fff;
+  padding: 28px 18px 26px;
+  box-shadow: 0 8px 22px rgba(90, 20, 40, 0.18);
 }
 
 header h1 {
   margin: 0;
-  font-size: 25px;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  letter-spacing: 0.03em;
 }
 
 header h2 {
-  margin: 5px 0;
-  font-size: 20px;
+  margin: 7px 0 6px;
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  letter-spacing: 0.06em;
 }
 
 header p {
   margin: 0;
+  font-size: 0.92rem;
+  opacity: 0.95;
 }
 
-/* =========================================================
-   KONTEN UTAMA DAN FORMULIR
-   ========================================================= */
+/* ==============================
+    FORMULIR
+   ============================== */
 
 main {
-  max-width: 900px;
-  margin: 30px auto;
+  max-width: 960px;
+  margin: 28px auto 40px;
   padding: 0 20px;
 }
 
-form {
-  background: white;
-  padding: 30px;
+.intro-banner {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e1d7d9;
+  border-left: 5px solid #8b2b3d;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  color: #4d2a33;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(67, 49, 59, 0.08);
+}
+
+form {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 30px 32px;
+  border-radius: 16px;
+  border: 1px solid #e3e8ee;
+  box-shadow: 0 8px 20px rgba(23, 40, 58, 0.08);
 }
 
 section {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 28px;
+  padding: 0 0 22px;
+  border-bottom: 1px solid #e7e5e1;
 }
 
 section h2 {
-  color: #174a8b;
-  border-left: 5px solid #174a8b;
-  padding-left: 10px;
+  color: #6d1f32;
+  border-left: 5px solid #8b2b3d;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #f9eef1 0%, #fff 100%);
+  border-radius: 6px 12px 12px 6px;
+  margin-bottom: 20px;
 }
 
-/* =========================================================
+/* ====================
    LABEL DAN INPUT
-   ========================================================= */
+   ==================== */
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #2b3440;
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #bbb;
-  border-radius: 6px;
+  padding: 11px 12px;
+  border: 2px solid #c8ced6;
+  border-radius: 8px;
   font-size: 15px;
   font-family: inherit;
-  background-color: white;
-  color: #222;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+  color: #1f2a37;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 textarea {
@@ -106,41 +121,37 @@ textarea {
 
 .label {
   display: block;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 5px;
+  color: #2b3440;
 }
 
-/* =========================================================
+/* =========================
    VALIDASI VISUAL
-   ========================================================= */
+   =========================*/
 
-/* Input yang sudah diisi dan valid */
 input:not(:placeholder-shown):valid,
 textarea:not(:placeholder-shown):valid {
-  border-color: #5cb85c;
+  border-color: #3fa277;
 }
 
-/* Input yang sudah diisi tetapi tidak valid */
 input:not(:placeholder-shown):invalid,
 textarea:not(:placeholder-shown):invalid {
   border-color: #d9534f;
 }
 
-/* Select yang tidak valid */
 select:invalid {
   border-color: #d9534f;
 }
 
-/* Tampilan ketika input sedang dipilih */
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #174a8b;
-  box-shadow: 0 0 0 2px rgba(23, 74, 139, 0.12);
+  border-color: #8b2b3d;
+  box-shadow: 0 0 0 3px rgba(139, 43, 61, 0.12);
 }
 
-/* Input yang ditandai tidak valid oleh JavaScript */
 input[aria-invalid="true"],
 select[aria-invalid="true"],
 textarea[aria-invalid="true"] {
@@ -148,33 +159,31 @@ textarea[aria-invalid="true"] {
   box-shadow: 0 0 0 1px rgba(217, 83, 79, 0.12);
 }
 
-/* =========================================================
+/* ===========================
    RADIO BUTTON DAN CHECKBOX
-   ========================================================= */
+   ===========================*/
 
 .radio,
 .checkbox {
   display: inline-block;
-  font-weight: normal;
+  font-weight: 500;
   margin-right: 20px;
 }
 
 .radio input,
 .checkbox input {
   width: auto;
-  margin-right: 5px;
-  accent-color: #174a8b;
+  margin-right: 8px;
+  accent-color: #8b2b3d;
 }
 
-/* Keterangan tambahan pada formulir */
 .keterangan-form {
   margin: 4px 0 8px 24px;
 }
 
-/* Dokumen pendukung pengajuan DPP */
 .dokumen-dpp {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   margin: 0 0 16px 24px;
 }
 
@@ -182,15 +191,15 @@ textarea[aria-invalid="true"] {
   margin: 0;
 }
 
-/* =========================================================
-   KONTRIBUSI BEASISWA DAN AKREDITASI
-   ========================================================= */
+/* ======================================
+   BEASISWA DAN AKREDITASI
+   ===================================== */
 
 .kontribusi-beasiswa {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .kontribusi-beasiswa input[type="number"] {
@@ -202,16 +211,16 @@ textarea[aria-invalid="true"] {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .nilai-akreditasi {
   width: 90px;
 }
 
-/* =========================================================
+/* ===============================
    DATA SEKOLAH
-   ========================================================= */
+   =============================== */
 
 .data-sekolah-grid {
   display: grid;
@@ -242,25 +251,27 @@ textarea[aria-invalid="true"] {
   gap: 10px 14px;
 }
 
-/* =========================================================
+/* ==================================
    FIELDSET
-   ========================================================= */
+   ==================================*/
 
 fieldset.form-group {
   min-width: 0;
   padding: 16px;
-  border: 1px solid #bbb;
-  border-radius: 6px;
+  border: 1px solid #ccd3db;
+  border-radius: 10px;
+  background: #fbfbfd;
 }
 
 fieldset legend {
-  padding: 0 6px;
-  font-weight: bold;
+  padding: 0 8px;
+  font-weight: 700;
+  color: #6d1f32;
 }
 
-/* =========================================================
+/* =======================
    LAYOUT DUA KOLOM
-   ========================================================= */
+   ======================= */
 
 .dua-kolom {
   display: grid;
@@ -268,83 +279,87 @@ fieldset legend {
   gap: 15px;
 }
 
-/* =========================================================
+/* =========================
    PESAN ERROR
-   ========================================================= */
+   ========================= */
 
 .pesan-error {
   display: block;
   min-height: 20px;
   color: #d9534f;
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
-/* =========================================================
+/* =========================
    TOMBOL
-   ========================================================= */
+   ========================= */
 
 .tombol {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 10px 22px;
+  padding: 11px 22px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
   font-family: inherit;
-  transition: opacity 0.2s, background-color 0.2s;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
 button[type="submit"] {
-  background: #174a8b;
-  color: white;
+  background: linear-gradient(135deg, #7d1d2a 0%, #4b1d34 100%);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(125, 29, 42, 0.2);
 }
 
 button[type="reset"] {
-  background: #777;
-  color: white;
+  background: #76839a;
+  color: #fff;
 }
 
 button:hover {
-  opacity: 0.85;
+  opacity: 0.95;
+  transform: translateY(-1px);
 }
 
 button:focus-visible {
-  outline: 2px solid #174a8b;
-  outline-offset: 3px;
+  outline: 3px solid rgba(125, 29, 42, 0.2);
+  outline-offset: 2px;
 }
 
-/* =========================================================
+/* =========================
    PESAN SUKSES
-   ========================================================= */
+   ========================= */
 
 #pesan-sukses {
   margin-top: 20px;
-  padding: 12px;
-  color: #155724;
-  background: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 6px;
+  padding: 12px 14px;
+  color: #1c5b3d;
+  background: #eaf8f0;
+  border: 1px solid #bfe6ce;
+  border-radius: 8px;
   display: none;
 }
 
-/* =========================================================
+/* =======================
    FOOTER
-   ========================================================= */
+   ======================= */
 
 footer {
   text-align: center;
   padding: 20px;
-  color: #666;
+  color: #5f6c7b;
 }
 
-/* =========================================================
-   RESPONSIVE — TABLET DAN PONSEL
-   ========================================================= */
+/* =======================
+   RESPONSIVE
+   ======================= */
 
 @media (max-width: 600px) {
   main {
@@ -353,15 +368,15 @@ footer {
   }
 
   form {
-    padding: 20px;
+    padding: 20px 16px;
   }
 
   header h1 {
-    font-size: 20px;
+    font-size: 1.35rem;
   }
 
   header h2 {
-    font-size: 17px;
+    font-size: 1rem;
   }
 
   .dua-kolom {
@@ -399,4 +414,3 @@ footer {
     margin-right: 12px;
   }
 }
-
