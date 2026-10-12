@@ -1,14 +1,12 @@
 
-/* =========================================================
-   FORMULIR PENDAFTARAN MAHASISWA BARU
-   Modul 6 — Validasi Form
-   ========================================================= */
-
 "use strict";
 
 const formPendaftaran = document.querySelector("#form-pendaftaran");
 const pesanSukses = document.querySelector("#pesan-sukses");
 
+const username = document.querySelector("#username");
+const password = document.querySelector("#password");
+const konfirmasiPassword = document.querySelector("#konfirmasiPassword");
 const email = document.querySelector("#email");
 const telepon = document.querySelector("#telepon");
 
@@ -24,14 +22,16 @@ const errorJK = document.querySelector("#error-jenisKelamin");
 const persetujuan = document.querySelector("#persetujuan");
 const errorPersetujuan = document.querySelector("#error-persetujuan");
 
-// Menandai apakah formulir pernah dikirim.
+
 let sudahSubmit = false;
 
-// =========================================================
-// 1. DAFTAR FIELD DAN PESAN KESALAHAN
-// =========================================================
+
+// 1. DAFTAR FIELD DAN PESAN KESALAHAN 
 
 const daftarField = [
+  ["username", "error-username"],
+  ["password", "error-password"],
+  ["konfirmasiPassword", "error-konfirmasiPassword"],
   ["nama", "error-nama"],
   ["status", "error-status"],
   ["agama", "error-agama"],
@@ -51,12 +51,11 @@ const daftarField = [
   ["tahunLulus", "error-tahunLulus"]
 ];
 
-// Ambil elemen input berdasarkan ID.
 function ambilField(id) {
   return document.getElementById(id);
 }
 
-// Ambil pesan kesalahan atau buat jika belum tersedia.
+// Ambil pesan kesalahan  
 function ambilPesanError(input, idError) {
   let error = document.getElementById(idError);
 
@@ -70,10 +69,7 @@ function ambilPesanError(input, idError) {
   return error;
 }
 
-// =========================================================
 // 2. FUNGSI MENAMPILKAN PESAN VALIDASI
-//    Menggunakan Constraint Validation API
-// =========================================================
 
 function validasiField(input, errorElement) {
   if (!input || !errorElement) {
@@ -117,9 +113,54 @@ function validasiField(input, errorElement) {
   }
 }
 
-// =========================================================
-// 3. VALIDASI EMAIL DAN NOMOR TELEPON
-// =========================================================
+// 3. VALIDASI USERNAME, PASSWORD, EMAIL, DAN NOMOR TELEPON 
+
+function validasiUsername() {
+  if (!username) return;
+
+  username.setCustomValidity("");
+
+  if (username.validity.valueMissing) {
+    username.setCustomValidity("Username wajib diisi.");
+  } else if (username.validity.patternMismatch) {
+    username.setCustomValidity(
+      "Username hanya boleh berisi huruf, angka, dan garis bawah."
+    );
+  } else if (username.validity.tooShort) {
+    username.setCustomValidity("Username minimal 5 karakter.");
+  }
+}
+
+function validasiPassword() {
+  if (!password) return;
+
+  password.setCustomValidity("");
+
+  if (password.validity.valueMissing) {
+    password.setCustomValidity("Password wajib diisi.");
+  } else if (password.validity.tooShort) {
+    password.setCustomValidity("Password minimal 8 karakter.");
+  }
+
+  if (konfirmasiPassword && konfirmasiPassword.value &&
+    konfirmasiPassword.value !== password.value) {
+    konfirmasiPassword.setCustomValidity(
+      "Konfirmasi password tidak sesuai."
+    );
+  }
+}
+
+function validasiKonfirmasiPassword() {
+  if (!konfirmasiPassword) return;
+  konfirmasiPassword.setCustomValidity("");
+  if (konfirmasiPassword.validity.valueMissing) {
+    konfirmasiPassword.setCustomValidity("Konfirmasi password wajib diisi.");
+  } else if (password && konfirmasiPassword.value !== password.value) {
+    konfirmasiPassword.setCustomValidity(
+      "Konfirmasi password tidak sesuai."
+    );
+  }
+}
 
 function validasiEmail() {
   if (!email) return;
@@ -151,15 +192,12 @@ function validasiTelepon() {
   }
 }
 
-// =========================================================
 // 4. VALIDASI PILIHAN PROGRAM STUDI
 //    Pilihan I, II, dan III tidak boleh sama
-// =========================================================
 
 function validasiPilihanProdi() {
   const pilihan = [pilihan1, pilihan2, pilihan3];
 
-  // Hapus pesan validasi duplikat sebelumnya.
   pilihan.forEach((field) => {
     if (field) {
       field.setCustomValidity("");
@@ -199,27 +237,22 @@ function validasiPilihanProdi() {
   });
 }
 
-// =========================================================
 // 5. MEMPERBARUI VALIDASI KHUSUS
-// =========================================================
-
 function perbaruiValiditasKhusus() {
+  validasiUsername();
+  validasiPassword();
+  validasiKonfirmasiPassword();
   validasiEmail();
   validasiTelepon();
   validasiPilihanProdi();
 }
 
-// =========================================================
 // 6. DAFTARKAN SELURUH INPUT UNTUK VALIDASI
-// =========================================================
-
-// Input tambahan seperti tahun NEM, jumlah nilai,
-// jumlah mata pelajaran, dan jumlah sumbangan juga diperiksa.
 const semuaField = formPendaftaran
   ? formPendaftaran.querySelectorAll(
-      "input:not([type='radio']):not([type='checkbox']), " +
-      "select, textarea"
-    )
+    "input:not([type='radio']):not([type='checkbox']), " +
+    "select, textarea"
+  )
   : [];
 
 semuaField.forEach((field) => {
@@ -240,9 +273,7 @@ semuaField.forEach((field) => {
   field.addEventListener("change", perbaruiField);
 });
 
-// =========================================================
 // 7. VALIDASI JENIS KELAMIN
-// =========================================================
 
 function validasiJenisKelamin() {
   const jkDipilih = Array.from(radioJK).some(
@@ -264,9 +295,7 @@ radioJK.forEach((radio) => {
   });
 });
 
-// =========================================================
-// 8. VALIDASI PERSETUJUAN
-// =========================================================
+// 8. VALIDASI PERSETUJUAN  
 
 function validasiPersetujuan() {
   const disetujui = Boolean(
@@ -288,9 +317,7 @@ if (persetujuan) {
   });
 }
 
-// =========================================================
-// 9. VALIDASI SELURUH FORM SAAT SUBMIT
-// =========================================================
+// 9. VALIDASI SELURUH FORM SAAT SUBMIT  
 
 if (formPendaftaran) {
   formPendaftaran.addEventListener("submit", (event) => {
@@ -359,9 +386,9 @@ if (formPendaftaran) {
   });
 }
 
-// =========================================================
+// =========================
 // 10. RESET FORM
-// =========================================================
+// =========================
 
 if (formPendaftaran) {
   formPendaftaran.addEventListener("reset", () => {
