@@ -1,22 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulir Pendaftaran Mahasiswa Baru</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
     <h1>FORMULIR PENDAFTARAN MAHASISWA BARU</h1>
     <h2>UNIVERSITAS SANATA DHARMA YOGYAKARTA</h2>
-    <p>Jalur Reguler</p>
+    <p> Mrican, Tromol Pos 29 Yogyakarta 55002 • Telp. (0274) 513301 • humas@usd.ac.id</p>
   </header>
 
   <main>
+    <div class="intro-banner">Silakan lengkapi seluruh data dengan benar sebelum formulir dikirimkan.</div>
+
     <form id="form-pendaftaran" novalidate>
+      <section>
+        <h2>Data Akun</h2>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Masukkan username" pattern="[A-Za-z0-9_]+"
+            minlength="5" maxlength="20" required>
+          <span class="pesan-error" id="error-username"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" minlength="8"
+            maxlength="20" required>
+          <span class="pesan-error" id="error-password"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Alamat Email</label>
+          <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+          <span class="pesan-error" id="error-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="konfirmasiPassword">Konfirmasi Password</label>
+          <input type="password" id="konfirmasiPassword" name="konfirmasiPassword" placeholder="Ulangi password"
+            minlength="8" maxlength="20" required>
+          <span class="pesan-error" id="error-konfirmasiPassword"></span>
+        </div>
+      </section>
+
 
       <!-- A. DATA CALON MAHASISWA -->
       <section>
@@ -24,22 +58,19 @@
 
         <div class="form-group">
           <label for="nama">Nama Lengkap</label>
-          <input type="text" id="nama" name="nama"
-                 placeholder="Masukkan nama lengkap"
-                 required minlength="3" maxlength="50">
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required minlength="3"
+            maxlength="50">
           <span class="pesan-error" id="error-nama"></span>
         </div>
 
         <div class="form-group">
           <span class="label" id="label-jenisKelamin">Jenis Kelamin</span>
           <label class="radio">
-            <input type="radio" name="jenisKelamin" value="Laki-laki"
-                   aria-labelledby="label-jenisKelamin" required>
+            <input type="radio" name="jenisKelamin" value="Laki-laki" aria-labelledby="label-jenisKelamin" required>
             Laki-laki
           </label>
           <label class="radio">
-            <input type="radio" name="jenisKelamin" value="Perempuan"
-                   aria-labelledby="label-jenisKelamin">
+            <input type="radio" name="jenisKelamin" value="Perempuan" aria-labelledby="label-jenisKelamin">
             Perempuan
           </label>
           <span class="pesan-error" id="error-jenisKelamin"></span>
@@ -83,41 +114,31 @@
 
         <div class="form-group">
           <label for="alamat">Alamat Lengkap</label>
-          <textarea id="alamat" name="alamat"
-                    placeholder="Masukkan alamat lengkap"
-                    required minlength="10" maxlength="200"></textarea>
+          <textarea id="alamat" name="alamat" placeholder="Masukkan alamat lengkap" required minlength="10"
+            maxlength="200"></textarea>
           <span class="pesan-error" id="error-alamat"></span>
         </div>
 
         <div class="dua-kolom">
           <div class="form-group">
             <label for="kabupaten">Kabupaten/Kota</label>
-            <input type="text" id="kabupaten" name="kabupaten"
-                   required minlength="3">
+            <input type="text" id="kabupaten" name="kabupaten" placeholder="Masukkan kabupaten/kota" required
+              minlength="3">
             <span class="pesan-error" id="error-kabupaten"></span>
           </div>
 
           <div class="form-group">
             <label for="provinsi">Provinsi</label>
-            <input type="text" id="provinsi" name="provinsi"
-                   required minlength="3">
+            <input type="text" id="provinsi" name="provinsi" placeholder="Masukkan provinsi" required minlength="3">
             <span class="pesan-error" id="error-provinsi"></span>
           </div>
         </div>
 
         <div class="form-group">
           <label for="telepon">No. Telepon/HP</label>
-          <input type="tel" id="telepon" name="telepon"
-                 placeholder="Contoh: 081234567890"
-                 inputmode="numeric" pattern="[0-9]{10,13}" required>
+          <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 081234567890" inputmode="numeric"
+            pattern="[0-9]{10,13}" required>
           <span class="pesan-error" id="error-telepon"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Alamat Email</label>
-          <input type="email" id="email" name="email"
-                 placeholder="nama@email.com" required>
-          <span class="pesan-error" id="error-email"></span>
         </div>
       </section>
 
@@ -127,15 +148,15 @@
 
         <div class="form-group">
           <label for="namaOrtu">Nama Orang Tua/Wali</label>
-          <input type="text" id="namaOrtu" name="namaOrtu"
-                 required minlength="3" maxlength="50">
+          <input type="text" id="namaOrtu" name="namaOrtu" placeholder="Masukkan nama orang tua/wali" required
+            minlength="3" maxlength="50">
           <span class="pesan-error" id="error-namaOrtu"></span>
         </div>
 
         <div class="form-group">
           <label for="hpOrtu">No. HP Orang Tua/Wali</label>
-          <input type="tel" id="hpOrtu" name="hpOrtu"
-                 inputmode="numeric" pattern="[0-9]{10,13}" required>
+          <input type="tel" id="hpOrtu" name="hpOrtu" placeholder="Contoh: 081234567890" inputmode="numeric"
+            pattern="[0-9]{10,13}" required>
           <span class="pesan-error" id="error-hpOrtu"></span>
         </div>
 
@@ -161,37 +182,29 @@
 
         <div class="form-group">
           <label for="asalPerguruanTinggi">Asal Perguruan Tinggi</label>
-          <input type="text" id="asalPerguruanTinggi"
-                 name="asalPerguruanTinggi"
-                 placeholder="Nama perguruan tinggi asal">
+          <input type="text" id="asalPerguruanTinggi" name="asalPerguruanTinggi"
+            placeholder="Nama perguruan tinggi asal">
         </div>
 
         <div class="form-group">
           <label for="asalProgramStudi">Asal Program Studi</label>
-          <input type="text" id="asalProgramStudi"
-                 name="asalProgramStudi"
-                 placeholder="Nama program studi asal">
+          <input type="text" id="asalProgramStudi" name="asalProgramStudi" placeholder="Nama program studi asal">
         </div>
 
         <div class="form-group">
           <span class="label" id="label-akreditasi">Status Akreditasi</span>
           <div class="status-akreditasi">
             <label class="radio">
-              <input type="radio" name="statusAkreditasi"
-                     value="Terakreditasi"
-                     aria-labelledby="label-akreditasi">
+              <input type="radio" name="statusAkreditasi" value="Terakreditasi" aria-labelledby="label-akreditasi">
               Terakreditasi dengan nilai
             </label>
 
-            <input type="text" id="nilaiAkreditasi"
-                   name="nilaiAkreditasi"
-                   aria-label="Nilai akreditasi"
-                   placeholder="Nilai" class="nilai-akreditasi">
+            <input type="text" id="nilaiAkreditasi" name="nilaiAkreditasi" aria-label="Nilai akreditasi"
+              placeholder="Nilai" class="nilai-akreditasi">
 
             <label class="radio">
-              <input type="radio" name="statusAkreditasi"
-                     value="Belum Terakreditasi"
-                     aria-labelledby="label-akreditasi">
+              <input type="radio" name="statusAkreditasi" value="Belum Terakreditasi"
+                aria-labelledby="label-akreditasi">
               Belum Terakreditasi
             </label>
           </div>
@@ -258,16 +271,15 @@
         <div class="dua-kolom">
           <div class="form-group">
             <label for="sekolah">1. Nama Sekolah Menengah</label>
-            <input type="text" id="sekolah" name="sekolah"
-                   placeholder="Masukkan nama sekolah"
-                   minlength="3" maxlength="100" required>
+            <input type="text" id="sekolah" name="sekolah" placeholder="Masukkan nama sekolah" minlength="3"
+              maxlength="100" required>
             <span class="pesan-error" id="error-sekolah"></span>
           </div>
 
           <div class="form-group">
             <label for="teleponSekolah">2. Telepon</label>
-            <input type="tel" id="teleponSekolah" name="teleponSekolah"
-                   placeholder="Contoh: 0274321234" inputmode="tel">
+            <input type="tel" id="teleponSekolah" name="teleponSekolah" placeholder="Contoh: 0274321234"
+              inputmode="tel">
           </div>
         </div>
 
@@ -276,21 +288,18 @@
 
           <div class="form-group">
             <label for="alamatSekolah">Alamat</label>
-            <input type="text" id="alamatSekolah" name="alamatSekolah"
-                   placeholder="Masukkan alamat sekolah">
+            <input type="text" id="alamatSekolah" name="alamatSekolah" placeholder="Masukkan alamat sekolah">
           </div>
 
           <div class="dua-kolom">
             <div class="form-group">
               <label for="kabupatenSekolah">Kabupaten/Kota</label>
-              <input type="text" id="kabupatenSekolah"
-                     name="kabupatenSekolah" placeholder="Kabupaten/Kota">
+              <input type="text" id="kabupatenSekolah" name="kabupatenSekolah" placeholder="Kabupaten/Kota">
             </div>
 
             <div class="form-group">
               <label for="provinsiSekolah">Provinsi</label>
-              <input type="text" id="provinsiSekolah"
-                     name="provinsiSekolah" placeholder="Provinsi">
+              <input type="text" id="provinsiSekolah" name="provinsiSekolah" placeholder="Provinsi">
             </div>
           </div>
         </div>
@@ -299,9 +308,8 @@
           <label for="tahunLulus">
             4. Bagi yang Sudah Lulus/Memiliki Ijazah — STTB Tahun
           </label>
-          <input type="number" id="tahunLulus" name="tahunLulus"
-                 min="2000" max="2026" step="1"
-                 placeholder="Contoh: 2025">
+          <input type="number" id="tahunLulus" name="tahunLulus" min="2000" max="2026" step="1"
+            placeholder="Contoh: 2025">
           <span class="pesan-error" id="error-tahunLulus"></span>
         </div>
 
@@ -311,25 +319,20 @@
           <div class="dua-kolom">
             <div class="form-group">
               <label for="tahunNem">a. Tahun</label>
-              <input type="number" id="tahunNem" name="tahunNem"
-                     min="2000" max="2026" step="1"
-                     placeholder="Tahun">
+              <input type="number" id="tahunNem" name="tahunNem" min="2000" max="2026" step="1" placeholder="Tahun">
             </div>
 
             <div class="form-group">
               <label for="jumlahNilai">b. Jumlah Nilai</label>
-              <input type="number" id="jumlahNilai" name="jumlahNilai"
-                     min="0" step="any" placeholder="Jumlah nilai">
+              <input type="number" id="jumlahNilai" name="jumlahNilai" min="0" step="any" placeholder="Jumlah nilai">
             </div>
 
             <div class="form-group">
               <label for="jumlahMataPelajaran">
                 c. Jumlah Mata Pelajaran
               </label>
-              <input type="number" id="jumlahMataPelajaran"
-                     name="jumlahMataPelajaran"
-                     min="0" step="1"
-                     placeholder="Jumlah mata pelajaran">
+              <input type="number" id="jumlahMataPelajaran" name="jumlahMataPelajaran" min="0" step="1"
+                placeholder="Jumlah mata pelajaran">
             </div>
           </div>
         </div>
@@ -382,28 +385,24 @@
 
         <div class="dokumen-dpp">
           <label class="checkbox">
-            <input type="checkbox" name="dokumenDpp[]"
-                   value="Penghasilan orang tua">
+            <input type="checkbox" name="dokumenDpp[]" value="Penghasilan orang tua">
             a. Daftar gaji Ayah dan Ibu atau surat keterangan penghasilan
             Ayah dan Ibu yang disahkan Ketua RT
           </label>
 
           <label class="checkbox">
-            <input type="checkbox" name="dokumenDpp[]"
-                   value="Rekening listrik dan telepon">
+            <input type="checkbox" name="dokumenDpp[]" value="Rekening listrik dan telepon">
             b. Bukti rekening listrik dan telepon
           </label>
 
           <label class="checkbox">
-            <input type="checkbox" name="dokumenDpp[]"
-                   value="Surat keterangan tidak mampu">
+            <input type="checkbox" name="dokumenDpp[]" value="Surat keterangan tidak mampu">
             c. Surat keterangan tidak mampu dari Ketua RT
           </label>
         </div>
 
         <label class="checkbox">
-          <input type="radio" name="permohonanDpp"
-                 value="Tidak Mengajukan">
+          <input type="radio" name="permohonanDpp" value="Tidak Mengajukan">
           Saya tidak mengajukan permohonan keringanan DPP.
         </label>
       </section>
@@ -414,24 +413,19 @@
 
         <div class="form-group">
           <label class="radio">
-            <input type="radio" name="partisipasiBeasiswa"
-                   value="Menyumbang">
+            <input type="radio" name="partisipasiBeasiswa" value="Menyumbang">
             Saya akan menyumbang dana ke USD untuk beasiswa.
           </label>
 
           <div class="kontribusi-beasiswa">
             <label for="jumlahSumbangan">Jumlah sumbangan (Rp)</label>
-            <input type="number" id="jumlahSumbangan"
-                   name="jumlahSumbangan"
-                   min="0" step="any"
-                   aria-label="Jumlah sumbangan beasiswa"
-                   placeholder="Jumlah">
+            <input type="number" id="jumlahSumbangan" name="jumlahSumbangan" min="0" step="any"
+              aria-label="Jumlah sumbangan beasiswa" placeholder="Jumlah">
           </div>
         </div>
 
         <label class="radio">
-          <input type="radio" name="partisipasiBeasiswa"
-                 value="Tidak Menyumbang">
+          <input type="radio" name="partisipasiBeasiswa" value="Tidak Menyumbang">
           Saya tidak akan menyumbang dana ke USD untuk beasiswa.
         </label>
       </section>
@@ -441,8 +435,7 @@
         <h2>H. Pernyataan</h2>
 
         <label class="checkbox">
-          <input type="checkbox" id="persetujuan"
-                 name="persetujuan" required>
+          <input type="checkbox" id="persetujuan" name="persetujuan" required>
           Saya menyatakan bahwa data yang saya isi adalah benar.
         </label>
 
@@ -466,4 +459,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
